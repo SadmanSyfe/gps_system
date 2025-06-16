@@ -1,5 +1,11 @@
 import socket
 import json
+from bokeh.client import push_session
+from bokeh.document import Document
+
+from bokeh.application import Application
+from bokeh.application.handlers import FunctionHandler
+from vis import update_location
 
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -19,6 +25,9 @@ while True:
         message = data.decode()
         try:
             location = json.loads(message)
+            lat = location['latitude']
+            lon = location['longitude']
+            update_location(lat,lon)
             print(f"Received data: {location}")
         except json.JSONDecodeError:
             continue
