@@ -112,7 +112,7 @@ jobs:
         run: |
           cd ios
           pod install # Installs iOS dependencies via CocoaPods
-          cd _
+          cd .. # Corrected: Navigate back to the root directory
 
       # Decode and install Apple Distribution Certificate (.p12)
       - name: Install Apple Certificate
@@ -198,6 +198,6 @@ jobs:
           files: |
             artifacts/android/build/app/outputs/bundle/release/app-release.aab
             artifacts/android/build/app/outputs/flutter-apk/app-debug.apk
-            artifacts/ios/build/ios/ipa/*.ipa
+            artifacts/ios/*.ipa # Corrected path for iOS IPA
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub Actions
