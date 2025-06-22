@@ -142,7 +142,7 @@ jobs:
       - name: Build iOS IPA
         run: flutter build ipa --release
         if: github.ref == 'refs/heads/main' # Only for main branch builds
-        
+        # env:
           # Your App Store Connect specific variables if needed, e.g.:
           # FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
           # FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
@@ -198,6 +198,6 @@ jobs:
           files: |
             artifacts/android/build/app/outputs/bundle/release/app-release.aab
             artifacts/android/build/app/outputs/flutter-apk/app-debug.apk
-            artifacts/ios/build/ios/ipa/*.ipa # Corrected path to match uploaded artifact structure
+            artifacts/ios/build/ios/ipa/*.ipa # Path to match uploaded artifact structure
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub Actions
