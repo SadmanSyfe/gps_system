@@ -142,7 +142,7 @@ jobs:
       - name: Build iOS IPA
         run: flutter build ipa --release
         if: github.ref == 'refs/heads/main' # Only for main branch builds
-        env:
+        
           # Your App Store Connect specific variables if needed, e.g.:
           # FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
           # FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
